@@ -12,8 +12,10 @@ input {
     display: flex;
     flex-direction: row;
     width: 90vw;
-    height: 50vh;
+    height: 90vh;
     border-radius: 15px;
+    margin-left: 60px;
+    margin-top: 30px;
 }
 
 .containerGraph {
@@ -38,6 +40,7 @@ input {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-top: 10px;
 }
 
 .titleCrypto p {
@@ -71,14 +74,12 @@ input {
     height: 60vh;
     overflow: hidden;
     overflow-y: auto;
-    max-height: 500px;
-    margin-bottom: 15px;
+    margin-bottom: 100px;
 }
 
 .horizontalLine {
     border: none;
     border-top: 1px solid #EEF1F6;
-    margin-top: 0px;
 }
 
 .crypto {

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 const CardCrypto = () => {
     const [cryptoData, setCryptoData] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,6 +20,21 @@ const CardCrypto = () => {
         fetchData();
     }, []);
 
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
+    };
+
+    const filteredCryptoData = cryptoData?.filter((crypto) => {
+        const { name, symbol } = crypto;
+        const searchTerm = searchValue.toLowerCase();
+        
+        return (
+            name.toLowerCase().includes(searchTerm) ||
+            symbol.toLowerCase().includes(searchTerm)
+        );
+    });
+    
+
     return (
         <div className="containerCards">
             <div className="containerGraph">
@@ -30,17 +47,17 @@ const CardCrypto = () => {
             <div className="containerPanel">
                 <div className="containerTitle">
                     <p>Control Panel</p>
-                    <input placeholder="Enter your search request..." />
+                    <input placeholder="Enter your search request..." value={searchValue} onChange={handleSearchChange}/>
                     <div className='titleCrypto'>
-                        <h1 style={{fontSize: '10px'}}>B2B DISTRIBUTION</h1>
-                        <p style={{fontSize: '6px'}}>Sales Deals</p>
+                        <h1 style={{fontSize: '80%'}}>B2B DISTRIBUTION</h1>
+                        <p style={{fontSize: '70%'}}>Sales Deals</p>
                     </div>
                 </div>
                 <div>
                 <hr className="horizontalLine" />
                 </div>
                 <div className="containerCryptos">
-                    {cryptoData?.map((crypto) => (
+                    {filteredCryptoData?.map((crypto) => (
                         <div key={crypto.name} className='crypto'>
                             <img src={crypto.image} alt={crypto.name}></img>
                             <div className='nameSymbol'>
@@ -57,19 +74,3 @@ const CardCrypto = () => {
 };
 
 export default CardCrypto;
-
-/**<div className="containerCryptos">
-                    {cryptoData?.map((crypto) => (
-                        <div key={crypto.name} className='crypto'>
-                            <ul className='cryptoList'>
-                                <li><img src={crypto.image} alt={crypto.name}></img>
-                                    <div className='nameSymbol'>
-                                        <h4>{crypto.name}</h4>
-                                        <p>{crypto.symbol}</p>
-                                    </div>
-                                    <p>{crypto.current_price}</p>
-                                </li>
-                            </ul>
-                        </div>
-                    ))}
-                </div> */
