@@ -1,0 +1,104 @@
+input {
+    border-radius: 15px;
+    width: 28vw;
+}
+
+.containerCards {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 50vh;
+    border-radius: 15px;
+}
+
+.containerGraph {
+    border: 2px solid black;
+    width: 60vw;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+
+.titleGraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.titleCrypto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.titleCrypto p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.containerPanel {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 20px;
+    margin-left: auto;
+    margin-top: 5px;
+}
+
+.containerTitle {
+    height: 30vh;
+    overflow: hidden;
+}
+
+.containerTitle p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.containerCryptos {
+    height: 35vh;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.horizontalLine {
+    border: none;
+    border-top: 1px solid black;
+    margin: 2px 0;
+}
+
+.crypto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.crypto img {
+    width: 20%;
+    height: 20%;
+}
+
+.crypto p {
+    margin-left: auto;
+}
+
+.nameSymbol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nameSymbol h4,
+.nameSymbol p {
+    margin: 3px;
+}
