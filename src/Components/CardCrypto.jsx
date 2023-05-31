@@ -30,10 +30,10 @@ const CardCrypto = () => {
             <div className="containerPanel">
                 <div className="containerTitle">
                     <p>Control Panel</p>
-                    <input placeholder="Enter your search request" />
+                    <input placeholder="Enter your search request..." />
                     <div className='titleCrypto'>
-                        <p>B2B DISTRIBUTION</p>
-                        <p>Sales Deals</p>
+                        <h1 style={{fontSize: '10px'}}>B2B DISTRIBUTION</h1>
+                        <p style={{fontSize: '6px'}}>Sales Deals</p>
                     </div>
                 </div>
                 <div>
@@ -44,10 +44,10 @@ const CardCrypto = () => {
                         <div key={crypto.name} className='crypto'>
                             <img src={crypto.image} alt={crypto.name}></img>
                             <div className='nameSymbol'>
-                                <h4>{crypto.name}</h4>
-                                <p>{crypto.symbol}</p>
+                                <h4 style={{fontSize: '10px'}}>{crypto.name}</h4>
+                                <p style={{fontSize: '10px'}}>{crypto.symbol}</p>
                             </div>
-                            <p>{crypto.current_price}</p>
+                            <p style={{fontSize: '10px'}}>{crypto.current_price}</p>
                         </div>
                     ))}
                 </div>

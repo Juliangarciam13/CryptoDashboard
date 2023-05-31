@@ -1,6 +1,10 @@
 input {
     border-radius: 15px;
+    border: none;
+    background-color: #EEF1F6;
+    font-size: 10px;
     width: 28vw;
+    height: 3vh;
 }
 
 .containerCards {
@@ -47,7 +51,8 @@ input {
     width: 30vw;
     margin: 20px;
     margin-left: auto;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 1px;
 }
 
 .containerTitle {
@@ -63,23 +68,24 @@ input {
 }
 
 .containerCryptos {
-    height: 35vh;
+    height: 60vh;
     overflow: hidden;
     overflow-y: auto;
-    max-height: 400px;
+    max-height: 500px;
+    margin-bottom: 15px;
 }
 
 .horizontalLine {
     border: none;
-    border-top: 1px solid black;
-    margin: 2px 0;
+    border-top: 1px solid #EEF1F6;
+    margin-top: 0px;
 }
 
 .crypto {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 .crypto img {
