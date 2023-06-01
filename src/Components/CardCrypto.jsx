@@ -40,14 +40,14 @@ const CardCrypto = () => {
             <div className="containerGraph">
                 <div className='titleGraph'>
                     <h1>Sales Activity</h1>
-                    <p>Hola</p>
+                    <p>Description</p>
                 </div>
                 <div>Graph</div>
             </div>
             <div className="containerPanel">
                 <div className="containerTitle">
-                    <p>Control Panel</p>
-                    <input placeholder="Enter your search request..." value={searchValue} onChange={handleSearchChange}/>
+                    <p style={{fontSize: '130%'}}>Control panel</p>
+                    <input placeholder="         Enter your search request..." value={searchValue} onChange={handleSearchChange}/>
                     <div className='titleCrypto'>
                         <h1 style={{fontSize: '80%'}}>B2B DISTRIBUTION</h1>
                         <p style={{fontSize: '70%'}}>Sales Deals</p>
@@ -64,7 +64,7 @@ const CardCrypto = () => {
                                 <h4 style={{fontSize: '10px'}}>{crypto.name}</h4>
                                 <p style={{fontSize: '10px'}}>{crypto.symbol}</p>
                             </div>
-                            <p style={{fontSize: '10px'}}>{crypto.current_price}</p>
+                            <p style={{fontSize: '10px'}}>${crypto.current_price}</p>
                         </div>
                     ))}
                 </div>
