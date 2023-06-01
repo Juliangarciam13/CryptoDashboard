@@ -5,16 +5,7 @@ export const datesCryptos = async () => {
             { method: 'GET'});
         const databaseCryptoJson = await databaseCrypto.json();
 
-        const newArrayCrypto = databaseCryptoJson.map((data)  => {
-            return {
-                'image': data.image,
-                'name': data.name,
-                'symbol': data.symbol,
-                'current_price': data['current_price']
-            }
-        })
-        console.log(newArrayCrypto);
-        return newArrayCrypto;
+        return databaseCryptoJson;
     } catch (error) {
         console.error(error)
     }

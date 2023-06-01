@@ -4,7 +4,7 @@ import CardCrypto from './Components/CardCrypto';
 function App() {
   return (
     <div className="App">
-     <CardCrypto />
+      <CardCrypto />
     </div>
   );
 }

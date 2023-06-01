@@ -36,6 +36,19 @@ input {
     margin-left: 30px;
 }
 
+.titleGraph h1 {
+    font-size: 50px;
+    font-weight: normal;
+    margin-bottom: 1px;
+
+}
+
+.titleGraph p {
+    text-align:  start;
+    color: #808080;
+    font-size: 13px;
+}
+
 .titleCrypto {
     display: flex;
     flex-direction: column;
@@ -79,7 +92,7 @@ input {
 
 .horizontalLine {
     border: none;
-    border-top: 1px solid #EEF1F6;
+    border-top: 1px solid #E0E0E0;
 }
 
 .crypto {
@@ -90,8 +103,8 @@ input {
 }
 
 .crypto img {
-    width: 17%;
-    height: 17%;
+    width: 16%;
+    height: 16%;
 }
 
 .crypto p {
