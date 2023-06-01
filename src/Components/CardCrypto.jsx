@@ -1,13 +1,12 @@
 import '../Styles/CardCrypto.css'
 import { datesCryptos } from '../Helpers/FetchApiCrypto';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const CardCrypto = () => {
     const [cryptoData, setCryptoData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     
 
-    useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await datesCryptos();
@@ -17,22 +16,19 @@ const CardCrypto = () => {
             }
         };
 
-        fetchData();
-    }, []);
+        if (cryptoData.length === 0) {
+            fetchData();
+            return null;
+        }
 
     const handleSearchChange = (event) => {
         setSearchValue(event.target.value);
     };
 
-    const filteredCryptoData = cryptoData?.filter((crypto) => {
-        const { name, symbol } = crypto;
-        const searchTerm = searchValue.toLowerCase();
-        
-        return (
-            name.toLowerCase().includes(searchTerm) ||
-            symbol.toLowerCase().includes(searchTerm)
+    const filteredCryptoData = cryptoData.filter((crypto) =>
+            crypto.name.toLowerCase().includes(searchValue) ||
+            crypto.symbol.toLowerCase().includes(searchValue)
         );
-    });
     
 
     return (
@@ -61,10 +57,10 @@ const CardCrypto = () => {
                         <div key={crypto.name} className='crypto'>
                             <img src={crypto.image} alt={crypto.name}></img>
                             <div className='nameSymbol'>
-                                <h4 style={{fontSize: '10px'}}>{crypto.name}</h4>
-                                <p style={{fontSize: '10px'}}>{crypto.symbol}</p>
+                                <h4 style={{fontSize: '12px'}}>{crypto.name}</h4>
+                                <p style={{fontSize: '12px', color: '#898989'}}>{crypto.symbol}</p>
                             </div>
-                            <p style={{fontSize: '10px'}}>${crypto.current_price}</p>
+                            <p style={{fontSize: '12px', fontWeight: 'bold', marginRight: '10px'}}>${crypto.current_price}</p>
                         </div>
                     ))}
                 </div>

@@ -9,6 +9,7 @@ input {
 
 .containerCards {
     border: 4px solid black;
+    font-family:"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: row;
     width: 70vw;
@@ -85,7 +86,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .crypto img {
@@ -102,6 +103,7 @@ input {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-left: 10px;
 }
 
 .nameSymbol h4,
