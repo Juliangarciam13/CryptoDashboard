@@ -1,0 +1,143 @@
+input {
+    border-radius: 25px;
+    border: none;
+    background-color: #EEF1F6;
+    font-size: 13px;
+    width: 20vw;
+    height: 5vh;
+}
+
+.containerCards {
+    border: 4px solid black;
+    font-family:"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    height: 90vh;
+    border-radius: 25px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.containerGraph {
+    border: 2px solid black;
+    width: 100%;
+    margin: 30px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+
+.titleGraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.titleGraph h1 {
+    font-size: 50px;
+    font-weight: normal;
+    margin-bottom: 1px;
+
+}
+
+.titleGraph p {
+    text-align:  start;
+    color: #808080;
+    font-size: 13px;
+}
+
+.titleCrypto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.titleCrypto p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.containerPanel {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 20px;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.containerTitle {
+    height: 30vh;
+    overflow: hidden;
+}
+
+.containerTitle p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.containerCryptos {
+    height: 70vh;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-bottom: 5px;
+}
+
+.horizontalLine {
+    border: none;
+    border-top: 1px solid #E0E0E0;
+}
+
+.crypto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.crypto img {
+    width: 16%;
+    height: 16%;
+}
+
+.crypto p {
+    margin-left: auto;
+}
+
+.nameSymbol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.nameSymbol h4,
+.nameSymbol p {
+    margin: 3px;
+}
+
+@media (max-width: 760px) {
+
+    .containerGraph {
+        width: 60vw;
+    }
+    .containerCards {
+        margin-left: 20px;
+        width: 90vw;
+        height: 90vh;
+        overflow: hidden;
+    }
+
+    input {
+        width: 25vw;
+        font-size: 10px;
+    }
+}
