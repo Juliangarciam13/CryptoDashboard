@@ -123,3 +123,21 @@ input {
 .nameSymbol p {
     margin: 3px;
 }
+
+@media (max-width: 760px) {
+
+    .containerGraph {
+        width: 60vw;
+    }
+    .containerCards {
+        margin-left: 20px;
+        width: 90vw;
+        height: 90vh;
+        overflow: hidden;
+    }
+
+    input {
+        width: 25vw;
+        font-size: 10px;
+    }
+}

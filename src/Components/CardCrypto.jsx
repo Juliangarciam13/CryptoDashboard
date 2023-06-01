@@ -1,6 +1,7 @@
 import '../Styles/CardCrypto.css'
 import { datesCryptos } from '../Helpers/FetchApiCrypto';
 import { useState } from 'react';
+import CryptoChart from './Graph';
 
 const CardCrypto = () => {
     const [cryptoData, setCryptoData] = useState([]);
@@ -41,7 +42,7 @@ const CardCrypto = () => {
                         channels and develop a sales satrategy based on this data.
                     </p>
                 </div>
-                <div>Graph</div>
+                <div><CryptoChart /></div>
             </div>
             <div className="containerPanel">
                 <div className="containerTitle">
