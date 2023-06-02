@@ -8,14 +8,13 @@ input {
 }
 
 .containerCards {
-    border: 4px solid black;
     font-family:"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: row;
-    width: 70vw;
+    width: 95vw;
     height: 90vh;
     border-radius: 25px;
-    margin-left: 200px;
+    margin-left: 30px;
     margin-top: 30px;
 }
 
@@ -65,7 +64,7 @@ input {
 .containerPanel {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 30vw;
     margin: 20px;
     margin-left: auto;
     margin-top: 20px;
