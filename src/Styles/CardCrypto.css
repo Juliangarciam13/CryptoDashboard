@@ -5,18 +5,36 @@ input {
     font-size: 13px;
     width: 20vw;
     height: 5vh;
+    position: relative;
+}
+
+.search img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+
+.search {
+    position: relative;
 }
 
 .containerCards {
-    border: 4px solid black;
-    font-family:"Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: row;
-    width: 70vw;
+    width: 95vw;
     height: 90vh;
     border-radius: 25px;
-    margin-left: 200px;
+    margin-left: 30px;
     margin-top: 30px;
+}
+
+.crypto:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 .containerGraph {
@@ -44,7 +62,7 @@ input {
 }
 
 .titleGraph p {
-    text-align:  start;
+    text-align: start;
     color: #808080;
     font-size: 13px;
 }
@@ -65,7 +83,7 @@ input {
 .containerPanel {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 30vw;
     margin: 20px;
     margin-left: auto;
     margin-top: 20px;
@@ -129,6 +147,7 @@ input {
     .containerGraph {
         width: 60vw;
     }
+
     .containerCards {
         margin-left: 20px;
         width: 90vw;
