@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
+
 const CryptoChart = () => {
     const [chartData, setChartData] = useState(null);
     const chartRef = useRef(null);
@@ -13,14 +14,26 @@ const CryptoChart = () => {
                 );
                 const data = await response.json();
 
+                const dates = [];
+                const prices = [];
+
+                const startDate = new Date(data.prices[0][0]);
+                for (let i = 0; i < 30; i++) {
+                    const date = new Date(startDate);
+                    date.setDate(startDate.getDate() + i);
+                    dates.push(date.toLocaleDateString());
+                    prices.push(data.prices[i][1]);
+                }
+
                 const formattedData = {
-                    labels: data.prices.map((entry) => new Date(entry[0]).toLocaleDateString()),
+                    labels: dates,
                     datasets: [
                         {
                             label: "Precio de Bitcoin (USD)",
-                            data: data.prices.map((entry) => entry[1]),
-                            backgroundColor: "blue",
-                            borderColor: "blue",
+                            data: prices,
+                            backgroundColor: "rgba(192, 192, 192, 0.8)",
+                            borderWidth: 2,
+                            hoverBackgroundColor: "#C1EE0A",
                         },
                     ],
                 };
@@ -38,7 +51,11 @@ const CryptoChart = () => {
         if (chartData) {
             const ctx = chartRef.current.getContext("2d");
 
-            new Chart(ctx, {
+            if (chartRef.current.chart) {
+                chartRef.current.chart.destroy();
+            }
+
+            chartRef.current.chart = new Chart(ctx, {
                 type: "bar",
                 data: chartData,
                 options: {
@@ -49,14 +66,32 @@ const CryptoChart = () => {
                             grid: {
                                 display: false,
                             },
+                            ticks: {
+                                beginAtZero: true,
+                                font: {
+                                    size: 12,
+                                },
+                            },
+                            categoryPercentage: 1,
+                            barPercentage: 0.8,
                         },
                         y: {
                             grid: {
                                 display: true,
                             },
+                            min: 28000,
+                            max: 30000,
                             ticks: {
-                                beginAtZero: true,
+                                stepSize: 500,
+                                font: {
+                                    size: 12,
+                                },
                             },
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
                         },
                     },
                 },
@@ -65,11 +100,11 @@ const CryptoChart = () => {
     }, [chartData]);
 
     return (
-        <div>
+        <div style={{ width: "100%", height: "400px" }}>
             {chartData ? (
                 <canvas ref={chartRef}></canvas>
             ) : (
-                <p>Cargando datos...</p>
+                <p>Loading...</p>
             )}
         </div>
     );

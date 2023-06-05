@@ -3,7 +3,7 @@ input {
     border: none;
     background-color: #EEF1F6;
     font-size: 13px;
-    width: 20vw;
+    width: 21vw;
     height: 5vh;
     position: relative;
 }
@@ -13,7 +13,7 @@ input {
     height: 30px;
     position: absolute;
     top: 50%;
-    right: 30px;
+    right: 15px;
     transform: translateY(-50%);
 }
 
@@ -55,7 +55,7 @@ input {
 }
 
 .titleGraph h1 {
-    font-size: 50px;
+    font-size: 60px;
     font-weight: normal;
     margin-bottom: 1px;
 
@@ -64,7 +64,7 @@ input {
 .titleGraph p {
     text-align: start;
     color: #808080;
-    font-size: 13px;
+    font-size: 20px;
 }
 
 .titleCrypto {
@@ -156,7 +156,22 @@ input {
     }
 
     input {
-        width: 25vw;
+        width: 21vw;
         font-size: 10px;
+    }
+
+    .search img {
+        right: 5px;
+    }
+
+    .titleGraph h1 {
+        font-size: 50px;
+    
+    }
+    
+    .titleGraph p {
+        text-align: start;
+        color: #808080;
+        font-size: 13px;
     }
 }
