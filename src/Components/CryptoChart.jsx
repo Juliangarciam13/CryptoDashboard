@@ -63,7 +63,7 @@ const CryptoChart = ({ selectedCrypto }) => {
                     maintainAspectRatio: false,
                     scales: {
                         x: {
-                            display: false, // Ocultar el eje X
+                            display: false,
                         },
                         y: {
                             beginAtZero: false,
