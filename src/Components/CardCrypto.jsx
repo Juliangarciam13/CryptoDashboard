@@ -25,6 +25,10 @@ const CardCrypto = () => {
         return null;
     }
 
+    if (selectedCrypto === null) {
+        setSelectedCrypto(cryptoData[0]);
+    }
+
     const handleSearchChange = (event) => {
         setSearchValue(event.target.value);
     };
@@ -74,10 +78,10 @@ const CardCrypto = () => {
                     <hr className="horizontalLine" />
                 </div>
                 <div className="containerCryptos">
-                    <CryptoContainer 
-                    filteredCryptoData={filteredCryptoData} 
-                    formatNumber={formatNumber} 
-                    onClick={(crypto) => handleCryptoClick(crypto)}/>
+                    <CryptoContainer
+                        filteredCryptoData={filteredCryptoData}
+                        formatNumber={formatNumber}
+                        onClick={(crypto) => handleCryptoClick(crypto)} />
                 </div>
             </div>
         </div>

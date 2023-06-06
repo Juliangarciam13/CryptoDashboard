@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
-
-const CryptoChart = ({selectedCrypto}) => {
+const CryptoChart = ({ selectedCrypto }) => {
     const [chartData, setChartData] = useState(null);
     const chartRef = useRef(null);
 
@@ -13,33 +12,33 @@ const CryptoChart = ({selectedCrypto}) => {
                     const response = await fetch(
                         `https://api.coingecko.com/api/v3/coins/${selectedCrypto.id}/market_chart?vs_currency=usd&days=30`
                     );
-                const data = await response.json();
+                    const data = await response.json();
 
-                const dates = [];
-                const prices = [];
+                    const dates = [];
+                    const prices = [];
 
-                const startDate = new Date(data.prices[0][0]);
-                for (let i = 0; i < 30; i++) {
-                    const date = new Date(startDate);
-                    date.setDate(startDate.getDate() + i);
-                    dates.push(date.toLocaleDateString());
-                    prices.push(data.prices[i][1]);
+                    const startDate = new Date(data.prices[0][0]);
+                    for (let i = 0; i < 30; i++) {
+                        const date = new Date(startDate);
+                        date.setDate(startDate.getDate() + i);
+                        dates.push(date.toLocaleDateString());
+                        prices.push(data.prices[i][1]);
+                    }
+
+                    const formattedData = {
+                        labels: dates,
+                        datasets: [
+                            {
+                                label: "Precio de Bitcoin (USD)",
+                                data: prices,
+                                backgroundColor: "rgba(192, 192, 192, 0.8)",
+                                borderWidth: 2,
+                                hoverBackgroundColor: "#C1EE0A",
+                            },
+                        ],
+                    };
+                    setChartData(formattedData);
                 }
-
-                const formattedData = {
-                    labels: dates,
-                    datasets: [
-                        {
-                            label: "Precio de Bitcoin (USD)",
-                            data: prices,
-                            backgroundColor: "rgba(192, 192, 192, 0.8)",
-                            borderWidth: 2,
-                            hoverBackgroundColor: "#C1EE0A",
-                        },
-                    ],
-                };
-                setChartData(formattedData);
-            }
             } catch (error) {
                 console.error(error);
             }
@@ -64,17 +63,7 @@ const CryptoChart = ({selectedCrypto}) => {
                     maintainAspectRatio: false,
                     scales: {
                         x: {
-                            grid: {
-                                display: false,
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                font: {
-                                    size: 12,
-                                },
-                            },
-                            categoryPercentage: 1,
-                            barPercentage: 0.8,
+                            display: false,
                         },
                         y: {
                             beginAtZero: false,

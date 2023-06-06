@@ -30,6 +30,7 @@ input {
     border-radius: 25px;
     margin-left: 30px;
     margin-top: 30px;
+    overflow: hidden;
 }
 
 .crypto:hover {
@@ -44,6 +45,7 @@ input {
     border-radius: 15px;
     background-color: black;
     color: white;
+    overflow: hidden;
 }
 
 .titleGraph {
@@ -52,6 +54,7 @@ input {
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 30px;
+    overflow: hidden;
 }
 
 .titleGraph h1 {
@@ -73,6 +76,7 @@ input {
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 30px;
+    overflow: hidden;
 }
 
 .titleCrypto p {
@@ -87,6 +91,7 @@ input {
     margin: 20px;
     margin-left: auto;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .containerTitle {
@@ -142,7 +147,7 @@ input {
     margin: 3px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
 
     .containerGraph {
         width: 60vw;
