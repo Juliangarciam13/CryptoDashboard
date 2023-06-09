@@ -11,9 +11,11 @@ CryptoDashboard is a web application that displays information about cryptocurre
 
 1. Clone the repository: https://github.com/Juliangarciam13/CryptoDashboard
 
-2. yarn install.
+2. cd CryptoDashboard
 
-3. yarn start.
+3. yarn install.
+
+4. yarn start.
 
 ## Used technology
 -React.js: JavaScript library for building user interfaces.

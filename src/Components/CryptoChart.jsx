@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import React, { useState, useEffect } from "react";
 
 const CryptoChart = ({ selectedCrypto }) => {
-    const [chartData, setChartData] = useState(null);
-    const chartRef = useRef(null);
+    const [chartInstance, setChartInstance] = useState(null);
 
     useEffect(() => {
         const fetchCryptoData = async () => {
@@ -25,11 +24,11 @@ const CryptoChart = ({ selectedCrypto }) => {
                         prices.push(data.prices[i][1]);
                     }
 
-                    const formattedData = {
+                    const newChartData = {
                         labels: dates,
                         datasets: [
                             {
-                                label: "Precio de Bitcoin (USD)",
+                                label: "Price(USD)",
                                 data: prices,
                                 backgroundColor: "rgba(192, 192, 192, 0.8)",
                                 borderWidth: 2,
@@ -37,7 +36,8 @@ const CryptoChart = ({ selectedCrypto }) => {
                             },
                         ],
                     };
-                    setChartData(formattedData);
+
+                    createChart(newChartData);
                 }
             } catch (error) {
                 console.error(error);
@@ -47,54 +47,50 @@ const CryptoChart = ({ selectedCrypto }) => {
         fetchCryptoData();
     }, [selectedCrypto]);
 
-    useEffect(() => {
-        if (chartData) {
-            const ctx = chartRef.current.getContext("2d");
+    const createChart = (data) => {
+        const ctx = document.getElementById("crypto-chart").getContext("2d");
 
-            if (chartRef.current.chart) {
-                chartRef.current.chart.destroy();
-            }
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
 
-            chartRef.current.chart = new Chart(ctx, {
-                type: "bar",
-                data: chartData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            display: false,
-                        },
-                        y: {
-                            beginAtZero: false,
-                            grid: {
-                                display: true,
-                            },
-                            ticks: {
-                                stepSize: 500,
-                                font: {
-                                    size: 12,
-                                },
-                            },
-                        },
+        const newChartInstance = new Chart(ctx, {
+            type: "bar",
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: false,
                     },
-                    plugins: {
-                        legend: {
-                            display: false,
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            display: true,
+                        },
+                        ticks: {
+                            stepSize: 500,
+                            font: {
+                                size: 12,
+                            },
                         },
                     },
                 },
-            });
-        }
-    }, [chartData]);
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+            },
+        });
+
+        setChartInstance(newChartInstance);
+    };
 
     return (
         <div style={{ width: "100%", height: "400px" }}>
-            {chartData ? (
-                <canvas ref={chartRef}></canvas>
-            ) : (
-                <p>Loading...</p>
-            )}
+            <canvas id="crypto-chart"></canvas>
         </div>
     );
 };

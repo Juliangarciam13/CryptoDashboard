@@ -1,0 +1,35 @@
+.nameSymbol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.nameSymbol h4,
+.nameSymbol p {
+    margin: 3px;
+}
+
+.nameSymbol p {
+    color: #898989;
+}
+
+.crypto p {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.crypto {
+    font-size: 100%;
+}
+
+@media (max-width: 768px) {
+    .crypto p {
+        font-size: 70%;
+    }
+
+    .crypto h4 {
+        font-size: 80%;
+    }
+}

@@ -1,33 +1,45 @@
 import '../Styles/CardCrypto.css'
 import { datesCryptos } from '../Helpers/FetchApiCrypto';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CryptoChart from './CryptoChart';
 import lens from '../Media/LensImg.png'
 import CryptoContainer from './CryptoContainer';
+import { fetchCryptoSearch } from '../Helpers/FetchCryptoSearch';
 
 const CardCrypto = () => {
     const [cryptoData, setCryptoData] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-    const [selectedCrypto, setSelectedCrypto] = useState(null);
+    const [selectedCrypto, setSelectedCrypto] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
 
-
-    const fetchData = async () => {
-        try {
-            const data = await datesCryptos();
-            setCryptoData(data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    if (cryptoData.length === 0) {
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await datesCryptos();
+                setCryptoData(data);
+                setSelectedCrypto(data[0]);
+            } catch (error) {
+                console.error(error);
+            }
+        };
         fetchData();
-        return null;
-    }
+    }, []);
 
-    if (selectedCrypto === null) {
-        setSelectedCrypto(cryptoData[0]);
-    }
+    useEffect(() => {
+        const fetchCrypto = async () => {
+            try {
+                if (searchValue !== '') {
+                    const dataSearch = await fetchCryptoSearch(searchValue, cryptoData);
+                    setSearchResults(dataSearch);
+                } else {
+                    setSearchResults([]);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchCrypto();
+    }, [searchValue, cryptoData]);
 
     const handleSearchChange = (event) => {
         setSearchValue(event.target.value);
@@ -37,17 +49,9 @@ const CardCrypto = () => {
         setSelectedCrypto(crypto)
     };
 
-    const filteredCryptoData = cryptoData.filter((crypto) =>
-        crypto.name.toLowerCase().startsWith(searchValue) ||
-        crypto.symbol.toLowerCase().startsWith(searchValue)
-    );
-
     const formatNumber = (number) => {
-        return number.toLocaleString('es', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-            useGrouping: true,
-        }).replace(/\./g, ',');
+        const formattedNumber = Number(number).toFixed(2);
+        return formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',').replace('.', ',');
     };
 
     return (
@@ -59,6 +63,18 @@ const CardCrypto = () => {
                         Here you can compare sales channel to determine the most effective<br />
                         channels and develop a sales satrategy based on this data.
                     </p>
+                    <div>
+                        <div className='nameCrypto'>
+                            <h1 style={{ fontSize: '30px', fontWeight: 'bold' }}>
+                                {selectedCrypto?.name}
+                            </h1>
+                        </div>
+                        <div className='priceCrypto'>
+                            <p style={{ color: 'white', fontSize: '50px' }}>
+                                ${formatNumber(selectedCrypto?.current_price)}
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div><CryptoChart selectedCrypto={selectedCrypto} /></div>
             </div>
@@ -79,7 +95,7 @@ const CardCrypto = () => {
                 </div>
                 <div className="containerCryptos">
                     <CryptoContainer
-                        filteredCryptoData={filteredCryptoData}
+                        cryptoData={searchValue !== '' ? searchResults : cryptoData}
                         formatNumber={formatNumber}
                         onClick={(crypto) => handleCryptoClick(crypto)} />
                 </div>
