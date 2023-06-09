@@ -3,9 +3,10 @@ input {
     border: none;
     background-color: #EEF1F6;
     font-size: 13px;
-    width: 21vw;
+    width: 19vw;
     height: 5vh;
     position: relative;
+    padding-left: 20px;
 }
 
 .search img {
@@ -29,7 +30,7 @@ input {
     height: 90vh;
     border-radius: 25px;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 40px;
     overflow: hidden;
 }
 
@@ -58,7 +59,7 @@ input {
 }
 
 .titleGraph h1 {
-    font-size: 60px;
+    font-size: 70px;
     font-weight: normal;
     margin-bottom: 1px;
 
@@ -134,18 +135,7 @@ input {
     margin-left: auto;
 }
 
-.nameSymbol {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 10px;
-}
 
-.nameSymbol h4,
-.nameSymbol p {
-    margin: 3px;
-}
 
 @media (max-width: 768px) {
 
@@ -161,7 +151,7 @@ input {
     }
 
     input {
-        width: 21vw;
+        width: 22vw;
         font-size: 10px;
     }
 

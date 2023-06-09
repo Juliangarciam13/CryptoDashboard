@@ -10,5 +10,3 @@ export const datesCryptos = async () => {
         console.error(error)
     }
 }
-
-datesCryptos();
