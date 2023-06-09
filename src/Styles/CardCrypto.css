@@ -3,10 +3,10 @@ input {
     border: none;
     background-color: #EEF1F6;
     font-size: 13px;
-    width: 19vw;
+    width: 20vw;
     height: 5vh;
     position: relative;
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 .search img {
@@ -16,6 +16,28 @@ input {
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
+}
+
+.nameCrypto{
+    position: absolute;
+    top: 130px;
+    right: 450px;
+    border-radius: 30px;
+    background-color: #C1EE0A;
+    color: black;
+    font-size: 10px;
+    text-align: center;
+}
+
+.priceCrypto {
+    position: absolute;
+    top: 140px;
+    right: 450px;
+}
+
+.nameCrypto h1 {
+    margin: 20px;
+    margin-top: 5px;
 }
 
 .search {
@@ -161,12 +183,23 @@ input {
 
     .titleGraph h1 {
         font-size: 50px;
-    
+
     }
-    
+
     .titleGraph p {
         text-align: start;
         color: #808080;
         font-size: 13px;
+    }
+
+    .nameCrypto {
+        top: 250px;
+        right: 300px;
+        font-size: 10px;
+    }
+
+    .priceCrypto {
+        top: 250px;
+        right: 300px;
     }
 }

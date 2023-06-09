@@ -63,8 +63,17 @@ const CardCrypto = () => {
                         Here you can compare sales channel to determine the most effective<br />
                         channels and develop a sales satrategy based on this data.
                     </p>
-                    <div style={{ backgroundColor: '#C1EE0A', color: 'black' }}>
-                        {selectedCrypto?.name}
+                    <div>
+                        <div className='nameCrypto'>
+                            <h1 style={{fontSize: '30px', fontWeight: 'bold'}}>
+                                {selectedCrypto?.name}
+                                </h1>
+                        </div>
+                        <div className='priceCrypto'>
+                            <p style={{color: 'white', fontSize: '50px'}}>
+                            ${formatNumber(selectedCrypto?.current_price)}
+                                </p>
+                        </div>
                     </div>
                 </div>
                 <div><CryptoChart selectedCrypto={selectedCrypto} /></div>
