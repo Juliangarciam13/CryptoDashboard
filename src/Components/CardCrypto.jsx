@@ -65,14 +65,14 @@ const CardCrypto = () => {
                     </p>
                     <div>
                         <div className='nameCrypto'>
-                            <h1 style={{fontSize: '30px', fontWeight: 'bold'}}>
+                            <h1 style={{ fontSize: '30px', fontWeight: 'bold' }}>
                                 {selectedCrypto?.name}
-                                </h1>
+                            </h1>
                         </div>
                         <div className='priceCrypto'>
-                            <p style={{color: 'white', fontSize: '50px'}}>
-                            ${formatNumber(selectedCrypto?.current_price)}
-                                </p>
+                            <p style={{ color: 'white', fontSize: '50px' }}>
+                                ${formatNumber(selectedCrypto?.current_price)}
+                            </p>
                         </div>
                     </div>
                 </div>

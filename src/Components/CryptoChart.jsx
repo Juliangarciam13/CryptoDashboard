@@ -44,49 +44,49 @@ const CryptoChart = ({ selectedCrypto }) => {
             }
         };
 
-        const createChart = (data) => {
-            const ctx = document.getElementById("crypto-chart").getContext("2d");
+        fetchCryptoData();
+    }, [selectedCrypto]);
 
-            if (chartInstance) {
-                chartInstance.destroy();
-            }
+    const createChart = (data) => {
+        const ctx = document.getElementById("crypto-chart").getContext("2d");
 
-            const newChartInstance = new Chart(ctx, {
-                type: "bar",
-                data: data,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            display: false,
-                        },
-                        y: {
-                            beginAtZero: false,
-                            grid: {
-                                display: true,
-                            },
-                            ticks: {
-                                stepSize: 500,
-                                font: {
-                                    size: 12,
-                                },
-                            },
-                        },
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+
+        const newChartInstance = new Chart(ctx, {
+            type: "bar",
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: false,
                     },
-                    plugins: {
-                        legend: {
-                            display: false,
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            display: true,
+                        },
+                        ticks: {
+                            stepSize: 500,
+                            font: {
+                                size: 12,
+                            },
                         },
                     },
                 },
-            });
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+            },
+        });
 
-            setChartInstance(newChartInstance);
-        };
-
-        fetchCryptoData();
-    }, [selectedCrypto]);
+        setChartInstance(newChartInstance);
+    };
 
     return (
         <div style={{ width: "100%", height: "400px" }}>
