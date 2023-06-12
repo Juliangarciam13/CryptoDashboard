@@ -6,7 +6,7 @@ input {
     width: 19vw;
     height: 5vh;
     position: relative;
-    padding-left: 32px;
+    padding-left: 30px;
 }
 
 .search img {
@@ -31,7 +31,7 @@ input {
 
 .priceCrypto {
     position: absolute;
-    top: 17vh;
+    top: 18vh;
     right: 30vw;
 }
 
@@ -90,7 +90,7 @@ input {
 .titleGraph p {
     text-align: start;
     color: #808080;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .titleCrypto {
@@ -213,5 +213,16 @@ input {
     .priceCrypto {
         top: 32vh;
         right: 43vw;
+    }
+
+    .titleGraph p {
+        font-size: 11px;
+    }
+
+    #crypto-chart {
+        margin-top: 20vh;
+        width: 95% !important;
+        height: 40vh !important;
+        overflow: hidden;
     }
 }
