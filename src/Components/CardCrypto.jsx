@@ -11,31 +11,38 @@ const CardCrypto = () => {
     const [searchValue, setSearchValue] = useState('');
     const [selectedCrypto, setSelectedCrypto] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true);
                 const data = await datesCryptos();
                 setCryptoData(data);
                 setSelectedCrypto(data[0]);
+                setLoading(false);
             } catch (error) {
-                console.error(error);
+                alert('API maximum requests have been reached, please wait 1 minute');
+                setLoading(false);
             }
         };
         fetchData();
     }, []);
-
+    
     useEffect(() => {
         const fetchCrypto = async () => {
             try {
+                setLoading(true);
                 if (searchValue !== '') {
                     const dataSearch = await fetchCryptoSearch(searchValue, cryptoData);
                     setSearchResults(dataSearch);
                 } else {
                     setSearchResults([]);
                 }
+                setLoading(false);
             } catch (error) {
-                console.error(error);
+                alert('API maximum requests have been reached, please wait 1 minute');
+                setLoading(false);
             }
         };
         fetchCrypto();
@@ -53,15 +60,15 @@ const CardCrypto = () => {
         const formattedNumber = Number(number).toFixed(2);
         return formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',').replace('.', ',');
     };
-
+    
     return (
         <div className="containerCards">
             <div className="containerGraph">
                 <div className='titleGraph'>
                     <h1>Sales Activity</h1>
                     <p>
-                        Here you can compare sales channel to determine the most effective<br />
-                        channels and develop a sales satrategy based on this data.
+                    Here you can view and compare cryptocurrency prices for the<br/>
+                    last 30 days and develop a sales strategy based on this data.
                     </p>
                     <div>
                         <div className='nameCrypto'>
