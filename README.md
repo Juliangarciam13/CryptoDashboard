@@ -5,7 +5,7 @@ CryptoDashboard is a web application that displays information about cryptocurre
 ## Features
 - List of available cryptocurrencies.
 - Search for cryptocurrencies by name.
-- Display of selected cryptocurrency price charts.
+- Display of selected. cryptocurrency price charts.
 
 ## Installation
 
@@ -19,9 +19,9 @@ CryptoDashboard is a web application that displays information about cryptocurre
 
 ## Technologies Used
 
--React.js: JavaScript library for building user interfaces.
--Chart.js: Library to create interactive charts.
--Coingecko API: API to obtain information about cryptocurrencies.
+- React.js: JavaScript library for building user interfaces.
+- Chart.js: Library to create interactive charts.
+- Coingecko API: API to obtain information about cryptocurrencies.
 
 ## Usage
 1. Upon loading the app, you will see a list of available cryptocurrencies.
@@ -29,5 +29,5 @@ CryptoDashboard is a web application that displays information about cryptocurre
 3. Click on a cryptocurrency to see its price chart for the last 30 days.
 
 ## Author 
--Julian A. Garcia M.
--GitHub: https://github.com/Juliangarciam13?tab=repositories
+- Julian A. Garcia M.
+- GitHub: https://github.com/Juliangarciam13?tab=repositories
